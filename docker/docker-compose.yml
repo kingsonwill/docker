@@ -1,0 +1,85 @@
+version: '3.4'
+services:
+    test-net:
+        image: 
+        build: 
+            - context: ./test-net
+            - dockerfile: ./Dockerfile
+        container_name: test-net
+        tmpfs:
+            - /tmp
+        links:
+            - notification
+        pid: "host"
+        ports:
+            - ""
+        volumes:
+            - 
+    
+    data:
+        image: 
+        build: 
+            - context: ./data
+            - dockerfile: ./Dockerfile
+        container_name: data
+        depends_on: 
+        tmpfs:
+            - /tmp
+        links:
+            -
+        pid: "host"
+        ports:
+            - ""
+        volumes:
+
+    model:
+        image: 
+        build: 
+            - context: ./model
+            - dockerfile: ./Dockerfile
+        container_name: model
+        depends_on: 
+        tmpfs:
+            - /tmp
+        links:
+            -
+        pid: "host"
+        ports:
+            - ""
+        volumes:
+
+    computation:
+        image: 
+        build: 
+            - context: ./computing
+            - dockerfile: ./Dockerfile
+        container_name: computation
+        depends_on: 
+        tmpfs:
+            - /tmp
+        links:
+            -
+        pid: "host"
+        ports:
+            - ""
+        volumes:
+
+    notification:
+        image: 
+        build: 
+            - context: ./notification
+            - dockerfile: ./Dockerfile
+        container_name: notification
+        depends_on: 
+        tmpfs:
+            - /tmp
+        links:
+            -
+        pid: "host"
+        ports:
+            - ""
+        volumes:
+        
+    
+        
+networks: 
